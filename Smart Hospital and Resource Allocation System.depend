@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1789482953 source:c:\users\asus\desktop\smart hospital and resource allocation system\intake.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
+1789483184 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
+
+1789482304 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
