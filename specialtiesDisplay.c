@@ -3,7 +3,7 @@
 #include "project.h"
 
 void doctorSpecialtyData(int specialtyID[],
-                         char specialty[][20],
+                         char specialty[][25],
                          float baseConsultationFee[],
                          int consultationTimeInMinutes[],
                          int patientCap[]){
@@ -11,7 +11,7 @@ void doctorSpecialtyData(int specialtyID[],
    printf("\n**DOCTOR SPECIALTY DATA**\n\n");
    printf("==============================================================================================================================\n");
 
-    printf("%10s |","Specialty ID");
+    printf("%12s |","Specialty ID");
     printf("%25s |","Specialty Name");
     printf("%30s |","Base Consultation Fee(LKR)");
     printf("%30s |","Consultation Time/Patient");
@@ -22,9 +22,9 @@ void doctorSpecialtyData(int specialtyID[],
     for(int i=0;i<4;i++){
 
         printf("%12d |",specialtyID[i]);
-        printf("%25s |",specialty[i]);
-        printf("%30f |",baseConsultationFee[i]);
-        printf("%30d |",consultationTimeInMinutes[i]);
+        printf("%-25s |",specialty[i]);
+        printf("%30.2f |",baseConsultationFee[i]);
+        printf("%25d mins |",consultationTimeInMinutes[i]);
         printf("%20d",patientCap[i]);
         printf("\n");
     }

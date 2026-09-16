@@ -11,10 +11,14 @@ void menu(char name[][20],
           char IDNumber[][13],
           char emergencyContactNumber[][11],
           int specialtyID[],
-          char specialty[][20],
+          char specialty[][25],
           float baseConsultationFee[],
           int consultationTimeInMinutes[],
-          int patientCap[]){
+          int patientCap[],
+          int wardID[],
+          char wardName[][30],
+          float dailyBedRate[],
+          int bedCapacity[]){
 
     int choice=0;
 
@@ -34,9 +38,14 @@ void menu(char name[][20],
     switch(choice){
     case 1:
         patientIntake(name,age,checkInTime,patientCount,contactNumber,address,IDNumber,emergencyContactNumber);
+        break;
 
     case 2:
         doctorSpecialtyData(specialtyID,specialty,baseConsultationFee,consultationTimeInMinutes,patientCap);
+        break;
+
+    case 3:
+        hospitalWardData(wardID,wardName,dailyBedRate,bedCapacity);
         break;
     }
 }

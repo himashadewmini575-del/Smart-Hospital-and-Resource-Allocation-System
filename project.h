@@ -16,13 +16,22 @@ void menu(char name[][20],
           char IDNumber[][13],
           char emergencyContactNumber[][11],
           int specialtyID[],
-          char specialty[][20],
+          char specialty[][25],
           float baseConsultationFee[],
           int consultationTimeInMinutes[],
-          int patientCap[]);
+          int patientCap[],
+          int wardID[],
+          char wardName[][30],
+          float dailyBedRate[],
+          int bedCapacity[]);
 
 void doctorSpecialtyData(int specialtyID[],
-                         char specialty[][20],
+                         char specialty[][25],
                          float baseConsultationFee[],
                          int consultationTimeInMinutes[],
                          int patientCap[]);
+
+void hospitalWardData(int wardID[],
+                      char wardName[][30],
+                      float dailyBedRate[],
+                      int bedCapacity[]);

@@ -20,16 +20,32 @@ int main()
     char emergencyContactNumber[MAXPATIENTS][11];
 
     int specialtyID[]={1,2,3,4};
-    char specialty[][20]={"General Practice","Paediatrics","Cardiology","Neurology"};
+    char specialty[][25]={"General Practice(OPD)","Paediatrics","Cardiology","Neurology"};
     float baseConsultationFee[]={1500,2500,4500,5000};
     int consultationTimeInMinutes[]={15,20,30,30};
     int patientCap[]={30,20,12,10};
 
     int wardID[]={1,2,3,4};
-    char wardName[][20]={"General","Paediatric","Surgical","ICU"};
+    char wardName[][30]={"General","Paediatric","Surgical","ICU(Intensive Care Unit)"};
     float dailyBedRate[]={3000.00,6000.00,12000.00,25000.00};
     int bedCapacity[]={20,10,10,5};
 
-    menu(name,age,checkInTime,&patientCount,contactNumber,address,IDNumber,emergencyContactNumber,specialtyID,specialty,baseConsultationFee,consultationTimeInMinutes,patientCap);
+    menu(name,
+         age,
+         checkInTime,
+         &patientCount,
+         contactNumber,
+         address,
+         IDNumber,
+         emergencyContactNumber,
+         specialtyID,
+         specialty,
+         baseConsultationFee,
+         consultationTimeInMinutes,
+         patientCap,
+         wardID,
+         wardName,
+         dailyBedRate,
+         bedCapacity);
     return 0;
 }
