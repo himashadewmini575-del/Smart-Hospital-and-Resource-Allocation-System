@@ -31,7 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="intake.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="project.h" />
+		<Unit filename="specialtiesDisplay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="wardDataDisplay.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />
