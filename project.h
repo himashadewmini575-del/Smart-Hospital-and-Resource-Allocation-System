@@ -23,7 +23,8 @@ void menu(char name[][20],
           int wardID[],
           char wardName[][30],
           float dailyBedRate[],
-          int bedCapacity[]);
+          int bedCapacity[],
+          int bedOccupancy[][20]);
 
 void doctorSpecialtyData(int specialtyID[],
                          char specialty[][25],
@@ -35,3 +36,6 @@ void hospitalWardData(int wardID[],
                       char wardName[][30],
                       float dailyBedRate[],
                       int bedCapacity[]);
+
+void bedArray(int bedOccupancy[][20],
+              int wardID[]);

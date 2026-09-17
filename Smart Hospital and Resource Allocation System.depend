@@ -4,14 +4,14 @@
 	<stdlib.h>
 	"project.h"
 
-1789572762 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
+1789620491 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
 
-1789572762 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
+1789620491 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
 
-1789572771 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
+1789622191 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
@@ -21,7 +21,12 @@
 	<stdlib.h>
 	"project.h"
 
-1789572697 source:c:\users\asus\desktop\smart hospital and resource allocation system\warddatadisplay.c
+1789622009 source:c:\users\asus\desktop\smart hospital and resource allocation system\warddatadisplay.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
+1789622009 source:c:\users\asus\desktop\smart hospital and resource allocation system\bedstatus.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"

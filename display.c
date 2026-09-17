@@ -18,15 +18,17 @@ void menu(char name[][20],
           int wardID[],
           char wardName[][30],
           float dailyBedRate[],
-          int bedCapacity[]){
+          int bedCapacity[],
+          int bedOccupancy[][20]){
 
     int choice=0;
 
-    printf("***MAIN MENU***\n");
+    printf("***MAIN MENU***\n\n");
     printf("1.New Patient Registration\n");
     printf("2.Doctor Specialties Data\n");
     printf("3.Hospital Wards Data\n");
     printf("4.Bed Status\n");
+    printf("5.Bed \n");
 
     printf("\n");
 
@@ -46,6 +48,10 @@ void menu(char name[][20],
 
     case 3:
         hospitalWardData(wardID,wardName,dailyBedRate,bedCapacity);
+        break;
+
+    case 4:
+        bedArray(bedOccupancy,wardID);
         break;
     }
 }

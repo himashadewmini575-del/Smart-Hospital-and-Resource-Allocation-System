@@ -30,6 +30,8 @@ int main()
     float dailyBedRate[]={3000.00,6000.00,12000.00,25000.00};
     int bedCapacity[]={20,10,10,5};
 
+    int bedOccupancy[4][20]={0};
+
     menu(name,
          age,
          checkInTime,
@@ -46,6 +48,7 @@ int main()
          wardID,
          wardName,
          dailyBedRate,
-         bedCapacity);
+         bedCapacity,
+         bedOccupancy);
     return 0;
 }

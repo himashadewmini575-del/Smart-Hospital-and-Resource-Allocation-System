@@ -22,7 +22,7 @@ void hospitalWardData(int wardID[],
    for(int i=0;i<4;i++){
 
     printf("%10d |",wardID[i]);
-    printf("%30s Ward |",wardName[i]);
+    printf("%-v sc 30s Ward |",wardName[i]);
     printf("%25.2f |",dailyBedRate[i]);
     printf("%10d",bedCapacity[i]);
 
