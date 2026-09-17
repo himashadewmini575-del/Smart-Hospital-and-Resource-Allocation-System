@@ -10,14 +10,20 @@ void patientIntake(char name[][20],
                    char contactNumber[][11],
                    char address[][50],
                    char IDNumber[][13],
-                   char emergencyContactNumber[][11]){
+                   char emergencyContactNumber[][11],
+                   int triageLevel[],
+                   int addSpecialtyID[],
+                   int addWardID[],
+                   int daysAdmitted[]){
 
     int hours=0;   //since 00:00
     int minutes=0;
 
+    int admissionStatus=0;
+
     printf("\n");
 
-    for(int i=0;i<MAXPATIENTS;i++){
+    for(int i=*patientCount;i<MAXPATIENTS;i++){
 
     printf("--PATIENT'S PERSONAL INFORMATION--\n\n");
 
@@ -34,17 +40,19 @@ void patientIntake(char name[][20],
     scanf(" %[^\n]",address[i]);
 
     printf("Enter ID number :");
-    scanf("%13s",IDNumber[i]);
+    scanf("%12s",IDNumber[i]);
 
     printf("\n--EMERGENCY CONTACT details--\n\n");
 
-    printf("enter Contact Number :");
+    printf("Enter Contact Number :");
     scanf("%10s",emergencyContactNumber[i]);
+
+    printf("\n");
 
     printf("Enter Check-in time (eg:-12:23) :");
     scanf("%2d:%2d",&hours,&minutes);
 
-    while(minutes>=60 || hours>=24){
+    while(minutes>=60 || hours>=24 || minutes<0 || hours<0){
 
     printf("**INPUT A VALID TIME**\n");
 
@@ -55,6 +63,64 @@ void patientIntake(char name[][20],
     checkInTime[i]=minutes+hours*60;
 
     //printf("%lu",checkInTime[i]); // test
+
+    printf("Enter Emergency/Triage Level (1=Normal,2=Urgent,3=Critical) :");
+    scanf("%d",&triageLevel[i]);
+
+    while(triageLevel[i]<1 || triageLevel[i]>3){
+            printf("\n**INPUT A VALID LEVEL**\n\n");
+
+         printf("Enter Emergency/Triage Level (1=Normal,2=Urgent,3=Critical) :");
+         scanf("%d",&triageLevel[i]);
+    }
+
+    printf("Enter Specialty ID you prefer to select :");
+    scanf("%d",&addSpecialtyID[i]);
+
+    while(addSpecialtyID[i]<1 || addSpecialtyID[i]>4){
+        printf("\n**INPUT A VALID SPECIALTY ID**\n\n");
+
+          printf("Enter Specialty ID you'd like to select :");
+          scanf("%d",&addSpecialtyID[i]);
+    }
+
+    printf("\n--WARD ADMISSION DETAILS--\n\n");
+
+    printf("Is Patient already admitted to a ward? (1=Yes,0=No) :");
+    scanf("%d",&admissionStatus);
+
+     while(admissionStatus !=0 && admissionStatus !=1){
+        printf("\n**INVALID INPUT**\n\n");
+
+        printf("Is Patient already admitted to a ward? (1=Yes,0=No) :");
+        scanf("%d",&admissionStatus);
+    }
+
+    if(admissionStatus==1){
+        printf("Enter Ward ID :");
+        scanf("%d",&addWardID[i]);
+
+        while(addWardID[i]<1 || addWardID[i]>4){
+        printf("\n**INPUT A VALID WARD ID**\n\n");
+
+             printf("Enter Ward ID :");
+             scanf("%d",&addWardID[i]);
+        }
+
+        printf("Enter number of days admitted :");
+        scanf("%d",&daysAdmitted[i]);
+
+        while(daysAdmitted[i]<1){
+            printf("\n**INPUT A VALID NUMBER OF DAYS**\n\n");
+
+            printf("Enter number of days admitted :");
+            scanf("%d",&daysAdmitted[i]);
+        }
+    }
+
+    else if(admissionStatus==0){
+        daysAdmitted[i]=0;
+    }
 
     (*patientCount)++;
     break;

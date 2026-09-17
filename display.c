@@ -10,25 +10,31 @@ void menu(char name[][20],
           char address[][50],
           char IDNumber[][13],
           char emergencyContactNumber[][11],
-          int specialtyID[],
-          char specialty[][25],
-          float baseConsultationFee[],
-          int consultationTimeInMinutes[],
-          int patientCap[],
-          int wardID[],
-          char wardName[][30],
-          float dailyBedRate[],
-          int bedCapacity[],
-          int bedOccupancy[][20]){
+          const int specialtyID[],
+          const char specialty[][25],
+          const float baseConsultationFee[],
+          const int consultationTimeInMinutes[],
+          const int patientCap[],
+          const int wardID[],
+          const char wardName[][30],
+          const float dailyBedRate[],
+          const int bedCapacity[],
+          int bedOccupancy[][20],
+          int triageLevel[],
+          int addSpecialtyID[],
+          int addWardID[],
+          int daysAdmitted[]){
 
     int choice=0;
+
+    while(1){
 
     printf("***MAIN MENU***\n\n");
     printf("1.New Patient Registration\n");
     printf("2.Doctor Specialties Data\n");
     printf("3.Hospital Wards Data\n");
     printf("4.Bed Status\n");
-    printf("5.Bed \n");
+    printf("5.Admit to a Ward\n");
 
     printf("\n");
 
@@ -39,19 +45,24 @@ void menu(char name[][20],
 
     switch(choice){
     case 1:
-        patientIntake(name,age,checkInTime,patientCount,contactNumber,address,IDNumber,emergencyContactNumber);
-        break;
+        patientIntake(name,age,checkInTime,patientCount,contactNumber,address,IDNumber,emergencyContactNumber,triageLevel,addSpecialtyID,addWardID,daysAdmitted);
+        continue;
 
     case 2:
         doctorSpecialtyData(specialtyID,specialty,baseConsultationFee,consultationTimeInMinutes,patientCap);
-        break;
+        continue;
 
     case 3:
         hospitalWardData(wardID,wardName,dailyBedRate,bedCapacity);
-        break;
+        continue;
 
     case 4:
         bedArray(bedOccupancy,wardID);
-        break;
+        continue;
+
+    case 5:
+        admitToAWard(bedOccupancy);
+        continue;
     }
+  }
 }

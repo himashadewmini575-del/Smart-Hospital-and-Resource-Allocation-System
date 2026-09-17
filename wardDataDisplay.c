@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "project.h"
 
-void hospitalWardData(int wardID[],
-                      char wardName[][30],
-                      float dailyBedRate[],
-                      int bedCapacity[]){
+void hospitalWardData(const int wardID[],
+                      const char wardName[][30],
+                      const float dailyBedRate[],
+                      const int bedCapacity[]){
 
    printf("\n**HOSPITAL WARDS DATA**\n\n");
 

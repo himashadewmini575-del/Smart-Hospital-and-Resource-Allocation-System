@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "project.h"
+#define MAX_SPECIALTY 4
 
-void doctorSpecialtyData(int specialtyID[],
-                         char specialty[][25],
-                         float baseConsultationFee[],
-                         int consultationTimeInMinutes[],
-                         int patientCap[]){
+void doctorSpecialtyData(const int specialtyID[],
+                         const char specialty[][25],
+                         const float baseConsultationFee[],
+                         const int consultationTimeInMinutes[],
+                         const int patientCap[]){
 
    printf("\n**DOCTOR SPECIALTY DATA**\n\n");
    printf("==============================================================================================================================\n");
@@ -19,7 +20,7 @@ void doctorSpecialtyData(int specialtyID[],
 
     printf("==============================================================================================================================\n");
 
-    for(int i=0;i<4;i++){
+    for(int i=0;i<MAX_SPECIALTY ;i++){
 
         printf("%12d |",specialtyID[i]);
         printf("%-25s |",specialty[i]);
