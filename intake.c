@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "project.h"
+
 #define MAXPATIENTS 1000
 
 void patientIntake(char name[][20],
@@ -16,8 +17,9 @@ void patientIntake(char name[][20],
                    int addWardID[],
                    int daysAdmitted[],
                    int currentQueueCount[],
-                   int waitTime[],
-                   const int consultationTimeInMinutes[]){
+                   float waitTime[],
+                   const int consultationTimeInMinutes[],
+                   int patientID[]){
 
     int hours=0;   //since 00:00
     int minutes=0;
@@ -107,7 +109,7 @@ void patientIntake(char name[][20],
             currentQueueCount[3]++;
          }
 
-    printf("%d",waitTime[i]);
+    //printf("%d",waitTime[i]);
 
     printf("\n--WARD ADMISSION DETAILS--\n\n");
 
@@ -146,6 +148,9 @@ void patientIntake(char name[][20],
     else if(admissionStatus==0){
         daysAdmitted[i]=0;
     }
+    patientID[i]=*patientCount;
+
+    printf("Your Patient ID is PAT-%04d\n",patientID[i]);
 
     (*patientCount)++;
     break;

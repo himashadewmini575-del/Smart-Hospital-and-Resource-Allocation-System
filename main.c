@@ -40,7 +40,8 @@ int main()
     int daysAdmitted[MAX_PATIENTS];
 
     int currentQueueCount[MAX_SPECIALTY]={0};
-    int waitTime[MAX_PATIENTS]={0};
+    float waitTime[MAX_PATIENTS]={0};
+    int patientID[MAX_PATIENTS];
 
     menu(name,
          age,
@@ -65,6 +66,7 @@ int main()
          addWardID,
          daysAdmitted,
          currentQueueCount,
-         waitTime);
+         waitTime,
+         patientID);
     return 0;
 }

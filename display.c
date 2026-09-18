@@ -25,19 +25,20 @@ void menu(char name[][20],
           int addWardID[],
           int daysAdmitted[],
           int currentQueueCount[],
-          int waitTime[]){
+          float waitTime[],
+          int patientID[]){
 
     int choice=0;
 
     while(1){
 
     printf("***MAIN MENU***\n\n");
-    printf("1.New Patient Registration\n");
-    printf("2.Doctor Specialties Data\n");
-    printf("3.Hospital Wards Data\n");
-    printf("4.Bed Status\n");
+    printf("1.Doctor Specialties Data\n");
+    printf("2.Hospital Wards Data\n");
+    printf("3.Bed Status\n");
+    printf("4.New Patient Registration\n");
     printf("5.Admit to a Ward\n");
-    printf("6.Bill Calculation\n");
+    printf("6.Print Bill\n");
 
     printf("\n");
 
@@ -48,7 +49,19 @@ void menu(char name[][20],
 
     switch(choice){
     case 1:
-        patientIntake(name,
+        doctorSpecialtyData(specialtyID,specialty,baseConsultationFee,consultationTimeInMinutes,patientCap);
+        continue;
+
+    case 2:
+        hospitalWardData(wardID,wardName,dailyBedRate,bedCapacity);
+        continue;
+
+    case 3:
+        bedArray(bedOccupancy,wardID);
+        continue;
+
+    case 4:
+       patientIntake(name,
                       age,
                       checkInTime,
                       patientCount,
@@ -62,19 +75,8 @@ void menu(char name[][20],
                       daysAdmitted,
                       currentQueueCount,
                       waitTime,
-                      consultationTimeInMinutes);
-        continue;
-
-    case 2:
-        doctorSpecialtyData(specialtyID,specialty,baseConsultationFee,consultationTimeInMinutes,patientCap);
-        continue;
-
-    case 3:
-        hospitalWardData(wardID,wardName,dailyBedRate,bedCapacity);
-        continue;
-
-    case 4:
-        bedArray(bedOccupancy,wardID);
+                      consultationTimeInMinutes,
+                      patientID);
         continue;
 
     case 5:
@@ -82,7 +84,16 @@ void menu(char name[][20],
         continue;
 
     case 6:
-        printBill(addSpecialtyID,*patientCount,currentQueueCount,specialtyID,consultationTimeInMinutes,waitTime);
+        printBill(patientID,
+                  name,
+                  specialty,
+                  *patientCount,
+                  age,
+                  wardName,
+                  triageLevel,
+                  daysAdmitted,
+                  waitTime,
+                  bedOccupancy);
         continue;
     }
   }
