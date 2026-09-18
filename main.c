@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "project.h"
+
 #define MAX_PATIENTS 1000
 #define MAX_WARDS 4
+#define MAX_SPECIALTY 4
 
 int main()
 {
@@ -37,6 +39,9 @@ int main()
     int bedOccupancy[MAX_WARDS][20]={0};
     int daysAdmitted[MAX_PATIENTS];
 
+    int currentQueueCount[MAX_SPECIALTY]={0};
+    int waitTime[MAX_PATIENTS]={0};
+
     menu(name,
          age,
          checkInTime,
@@ -58,6 +63,8 @@ int main()
          triageLevel,
          addSpecialtyID,
          addWardID,
-         daysAdmitted);
+         daysAdmitted,
+         currentQueueCount,
+         waitTime);
     return 0;
 }

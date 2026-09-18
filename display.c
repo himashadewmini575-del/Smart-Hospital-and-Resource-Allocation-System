@@ -23,7 +23,9 @@ void menu(char name[][20],
           int triageLevel[],
           int addSpecialtyID[],
           int addWardID[],
-          int daysAdmitted[]){
+          int daysAdmitted[],
+          int currentQueueCount[],
+          int waitTime[]){
 
     int choice=0;
 
@@ -35,6 +37,7 @@ void menu(char name[][20],
     printf("3.Hospital Wards Data\n");
     printf("4.Bed Status\n");
     printf("5.Admit to a Ward\n");
+    printf("6.Bill Calculation\n");
 
     printf("\n");
 
@@ -45,7 +48,21 @@ void menu(char name[][20],
 
     switch(choice){
     case 1:
-        patientIntake(name,age,checkInTime,patientCount,contactNumber,address,IDNumber,emergencyContactNumber,triageLevel,addSpecialtyID,addWardID,daysAdmitted);
+        patientIntake(name,
+                      age,
+                      checkInTime,
+                      patientCount,
+                      contactNumber,
+                      address,
+                      IDNumber,
+                      emergencyContactNumber,
+                      triageLevel,
+                      addSpecialtyID,
+                      addWardID,
+                      daysAdmitted,
+                      currentQueueCount,
+                      waitTime,
+                      consultationTimeInMinutes);
         continue;
 
     case 2:
@@ -62,6 +79,10 @@ void menu(char name[][20],
 
     case 5:
         admitToAWard(bedOccupancy);
+        continue;
+
+    case 6:
+        printBill(addSpecialtyID,*patientCount,currentQueueCount,specialtyID,consultationTimeInMinutes,waitTime);
         continue;
     }
   }

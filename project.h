@@ -12,7 +12,10 @@ void patientIntake(char name[][20],
                   int triageLevel[],
                   int addSpecialtyID[],
                   int addWardID[],
-                  int daysAdmitted[]);
+                  int daysAdmitted[],
+                  int currentQueueCount[],
+                  int waitTime[],
+                  const int consultationTimeInMinutes[]);
 
 void menu(char name[][20],
           unsigned short int age[],
@@ -35,7 +38,9 @@ void menu(char name[][20],
           int triageLevel[],
           int addSpecialtyID[],
           int addWardID[],
-          int daysAdmitted[]);
+          int daysAdmitted[],
+          int currentQueueCount[],
+          int waitTime[]);
 
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
@@ -52,5 +57,12 @@ void bedArray(int bedOccupancy[][20],
               const int wardID[]);
 
 void admitToAWard(int bedOccupancy[][20]);
+
+void printBill(int addSpecialtyID[],
+               unsigned int patientCount,
+               int currentQueueCount[],
+               const int specialtyID[],
+               const int consultationTimeInMinutes[],
+               int waitTime[]);
 
 #endif // PROJECT_H

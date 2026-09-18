@@ -99,9 +99,4 @@ void admitToAWard(int bedOccupancy[][20]){
 
         printf("Your bed is: Ward %d Bed %d\n\n",i,j);
     }
-    }
-
-
-
-
-
+}

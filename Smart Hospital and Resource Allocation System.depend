@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1789673907 source:c:\users\asus\desktop\smart hospital and resource allocation system\intake.c
+1789708900 source:c:\users\asus\desktop\smart hospital and resource allocation system\intake.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
 
-1789674239 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
+1789708900 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
 
-1789673201 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
+1789707644 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
 
-1789674184 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
+1789708900 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
@@ -26,7 +26,17 @@
 	<stdlib.h>
 	"project.h"
 
-1789669483 source:c:\users\asus\desktop\smart hospital and resource allocation system\bedstatus.c
+1789692910 source:c:\users\asus\desktop\smart hospital and resource allocation system\bedstatus.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
+1789705942 source:c:\users\asus\desktop\smart hospital and resource allocation system\billingandcalculations.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
+1789708315 source:c:\users\asus\desktop\smart hospital and resource allocation system\printbill.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"

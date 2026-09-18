@@ -14,7 +14,10 @@ void patientIntake(char name[][20],
                    int triageLevel[],
                    int addSpecialtyID[],
                    int addWardID[],
-                   int daysAdmitted[]){
+                   int daysAdmitted[],
+                   int currentQueueCount[],
+                   int waitTime[],
+                   const int consultationTimeInMinutes[]){
 
     int hours=0;   //since 00:00
     int minutes=0;
@@ -74,15 +77,37 @@ void patientIntake(char name[][20],
          scanf("%d",&triageLevel[i]);
     }
 
-    printf("Enter Specialty ID you prefer to select :");
+    printf("Enter Specialty ID you want to select :");
     scanf("%d",&addSpecialtyID[i]);
 
     while(addSpecialtyID[i]<1 || addSpecialtyID[i]>4){
         printf("\n**INPUT A VALID SPECIALTY ID**\n\n");
 
-          printf("Enter Specialty ID you'd like to select :");
+          printf("Enter Specialty ID you want to select :");
           scanf("%d",&addSpecialtyID[i]);
     }
+
+    //wait time calculation
+
+    waitTime[i]=currentQueueCount[addSpecialtyID[i]-1]*consultationTimeInMinutes[addSpecialtyID[i]-1];
+
+         if(addSpecialtyID[i]==1 && currentQueueCount[0]<30){
+            currentQueueCount[0]++;
+         }
+
+         else if(addSpecialtyID[i]==2 && currentQueueCount[1]<20){
+            currentQueueCount[1]++;
+         }
+
+         else if(addSpecialtyID[i]==3 && currentQueueCount[2]<12){
+            currentQueueCount[2]++;
+         }
+
+         else if(addSpecialtyID[i]==4 && currentQueueCount[3]<10){
+            currentQueueCount[3]++;
+         }
+
+    printf("%d",waitTime[i]);
 
     printf("\n--WARD ADMISSION DETAILS--\n\n");
 
