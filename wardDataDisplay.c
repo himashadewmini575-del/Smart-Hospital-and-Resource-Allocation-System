@@ -7,7 +7,7 @@ void hospitalWardData(const int wardID[],
                       const float dailyBedRate[],
                       const int bedCapacity[]){
 
-   printf("\n**HOSPITAL WARDS DATA**\n\n");
+   printf("\n**HOSPITAL WARDS DETAILS**\n\n");
 
    printf("===============================================================================================\n");
    printf("%10s |","Ward ID");
@@ -22,7 +22,7 @@ void hospitalWardData(const int wardID[],
    for(int i=0;i<4;i++){
 
     printf("%10d |",wardID[i]);
-    printf("%-v sc 30s Ward |",wardName[i]);
+    printf("%-30s Ward |",wardName[i]);
     printf("%25.2f |",dailyBedRate[i]);
     printf("%10d",bedCapacity[i]);
 

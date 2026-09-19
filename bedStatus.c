@@ -25,79 +25,76 @@ void bedArray(int bedOccupancy[][20],const int wardID[]){
     }
 }
 
-void admitToAWard(int bedOccupancy[][20]){
-
-   int i;
-   int j;
+void admitToAWard(int bedOccupancy[][20],int addBedNumber[],int addWardID[],int i){
 
     printf("Enter Ward ID :");
-    scanf("%d",&i);
+    scanf("%d",&addWardID[i]);
 
-    while(i<1 || i>MAX_WARDS){
+    while(addWardID[i]<1 || addWardID[i]>MAX_WARDS){
         printf("\n**INVALID WARD ID**\n\n");
 
     printf("Enter Ward ID :");
-    scanf("%d",&i);
+    scanf("%d",&addWardID[i]);
     }
 
-    if(i==1){
+    if(addWardID[i]==1){
 
         printf("Enter Bed Number :");
-        scanf("%d",&j);
+        scanf("%d",&addBedNumber[i]);
 
-        while(j<1 || j>20){
+        while(addBedNumber[i]<1 || addBedNumber[i]>20){
             printf("\n**MAXIMUM BEDS -20**\n\n");
 
               printf("Enter Bed Number :");
-              scanf("%d",&j);
+              scanf("%d",&addBedNumber[i]);
         }
     }
 
-    if(i==2){
+    if(addWardID[i]==2){
 
          printf("Enter Bed Number :");
-         scanf("%d",&j);
+         scanf("%d",&addBedNumber[i]);
 
-        while(j<1 || j>10){
+        while(addBedNumber[i]<1 || addBedNumber[i]>10){
             printf("\n**MAXIMUM BEDS -10**\n\n");
 
             printf("Enter Bed Number :");
-            scanf("%d",&j);
+            scanf("%d",&addBedNumber[i]);
         }
     }
 
-    if(i==3){
+    if(addWardID[i]==3){
         printf("Enter Bed Number :");
-        scanf("%d",&j);
+        scanf("%d",&addBedNumber[i]);
 
-        while(j<1 || j>10){
+        while(addBedNumber[i]<1 || addBedNumber[i]>10){
             printf("\n**MAXIMUM BEDS -10**\n\n");
 
             printf("Enter Bed Number :");
-            scanf("%d",&j);
+            scanf("%d",&addBedNumber[i]);
         }
     }
 
-    if(i==4){
+    if(addWardID[i]==4){
         printf("Enter Bed Number :");
-        scanf("%d",&j);
+        scanf("%d",&addBedNumber[i]);
 
-        while(j<1 || j>5){
+        while(addBedNumber[i]<1 || addBedNumber[i]>5){
             printf("\n**MAXIMUM BEDS -5**\n\n");
 
             printf("Enter Bed Number :");
-            scanf("%d",&j);
+            scanf("%d",&addBedNumber[i]);
         }
     }
 
-    if(bedOccupancy[i-1][j-1]==1){
+    if(bedOccupancy[addWardID[i]-1][addBedNumber[i]-1]==1){
         printf("\n**BED IS OCCUPIED**\n\n");
-        admitToAWard(bedOccupancy);
+        admitToAWard(bedOccupancy,addBedNumber,addWardID,i);
     }
 
     else{
-        bedOccupancy[i-1][j-1]=1;
+        bedOccupancy[addWardID[i]-1][addBedNumber[i]-1]=1;
 
-        printf("Your bed is: Ward %d Bed %d\n\n",i,j);
+        printf("\n^^Your bed is: Ward %d Bed %d^^\n\n",addWardID[i],addBedNumber[i]);
     }
 }

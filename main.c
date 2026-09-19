@@ -8,9 +8,9 @@
 
 int main()
 {
-    printf("Smart Hospital\n");
-    printf("          &\n");
-    printf("       Resource Allocation System\n");
+    printf("+++++ Smart Hospital\n");
+    printf("              &\n");
+    printf("          Resource Allocation System +++++\n");
     printf("\n");
 
     char name[MAX_PATIENTS][20];
@@ -43,6 +43,10 @@ int main()
     float waitTime[MAX_PATIENTS]={0};
     int patientID[MAX_PATIENTS];
 
+    int surchargeRate=0;
+    float surcharge=0;
+    int addBedNumber[20];
+
     menu(name,
          age,
          checkInTime,
@@ -67,6 +71,8 @@ int main()
          daysAdmitted,
          currentQueueCount,
          waitTime,
-         patientID);
+         patientID,
+         surchargeRate,
+         addBedNumber);
     return 0;
 }

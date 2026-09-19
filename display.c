@@ -26,19 +26,20 @@ void menu(char name[][20],
           int daysAdmitted[],
           int currentQueueCount[],
           float waitTime[],
-          int patientID[]){
+          int patientID[],
+          int surchargeRate,
+          int addBedNumber[]){
 
     int choice=0;
 
     while(1){
 
-    printf("***MAIN MENU***\n\n");
-    printf("1.Doctor Specialties Data\n");
-    printf("2.Hospital Wards Data\n");
+    printf("\n***MAIN MENU***\n\n");
+    printf("1.Doctor Specialties Details\n");
+    printf("2.Hospital Wards Details\n");
     printf("3.Bed Status\n");
     printf("4.New Patient Registration\n");
-    printf("5.Admit to a Ward\n");
-    printf("6.Print Bill\n");
+    printf("5.Print Bill\n");
 
     printf("\n");
 
@@ -76,14 +77,12 @@ void menu(char name[][20],
                       currentQueueCount,
                       waitTime,
                       consultationTimeInMinutes,
-                      patientID);
+                      patientID,
+                      addBedNumber,
+                      bedOccupancy);
         continue;
 
     case 5:
-        admitToAWard(bedOccupancy);
-        continue;
-
-    case 6:
         printBill(patientID,
                   name,
                   specialty,
@@ -93,7 +92,12 @@ void menu(char name[][20],
                   triageLevel,
                   daysAdmitted,
                   waitTime,
-                  bedOccupancy);
+                  bedOccupancy,
+                  surchargeRate,
+                  addSpecialtyID,
+                  addWardID,
+                  baseConsultationFee,
+                  addBedNumber);
         continue;
     }
   }

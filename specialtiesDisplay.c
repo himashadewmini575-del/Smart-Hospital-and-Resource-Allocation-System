@@ -10,7 +10,7 @@ void doctorSpecialtyData(const int specialtyID[],
                          const int consultationTimeInMinutes[],
                          const int patientCap[]){
 
-   printf("\n**DOCTOR SPECIALTY DATA**\n\n");
+   printf("\n**DOCTOR SPECIALTY DETAILS**\n\n");
    printf("==============================================================================================================================\n");
 
     printf("%12s |","Specialty ID");

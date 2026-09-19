@@ -16,7 +16,9 @@ void patientIntake(char name[][20],
                   int currentQueueCount[],
                   float waitTime[],
                   const int consultationTimeInMinutes[],
-                  int patientID[]);
+                  int patientID[],
+                  int addBedNumber[],
+                  int bedOccupancy[][20]);
 
 void menu(char name[][20],
           unsigned short int age[],
@@ -42,7 +44,9 @@ void menu(char name[][20],
           int daysAdmitted[],
           int currentQueueCount[],
           float waitTime[],
-          int patientID[]);
+          int patientID[],
+          int surchargeRate,
+          int addBedNumber[]);
 
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
@@ -58,7 +62,10 @@ void hospitalWardData(const int wardID[],
 void bedArray(int bedOccupancy[][20],
               const int wardID[]);
 
-void admitToAWard(int bedOccupancy[][20]);
+void admitToAWard(int bedOccupancy[][20],
+                  int addBedNumber[],
+                  int addWardID[],
+                  int i);
 
 void printBill(int patientID[],
                char name[][20],
@@ -69,6 +76,19 @@ void printBill(int patientID[],
                int triageLevel[],
                int daysAdmitted[],
                float waitTime[],
-               int bedOccupancy[][20]);
+               int bedOccupancy[][20],
+               int surchargeRate,
+               int addSpecialtyID[],
+               int addWardID[],
+               const float baseConsultationFee[],
+               int addBedNumber[]);
+
+int surcharges(int triageLevel[],
+               int i);
+
+float surchargeCalc(const float baseConsultationFee[],
+                    int i,
+                    int triageLevel[],
+                    int addSpecialtyID[]);
 
 #endif // PROJECT_H
