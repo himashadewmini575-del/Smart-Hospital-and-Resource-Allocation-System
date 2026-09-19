@@ -48,6 +48,7 @@ int main()
     int addBedNumber[20];
     char subsidyEligibility[MAX_PATIENTS][25];
     char subsidyDiscountRate[MAX_PATIENTS][5];
+    char emergencyLevel[MAX_PATIENTS][10];
 
     menu(name,
          age,
@@ -77,7 +78,8 @@ int main()
          surchargeRate,
          addBedNumber,
          subsidyEligibility,
-         subsidyDiscountRate);
+         subsidyDiscountRate,
+         emergencyLevel);
 
     return 0;
 }

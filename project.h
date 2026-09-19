@@ -48,7 +48,8 @@ void menu(char name[][20],
           int surchargeRate,
           int addBedNumber[],
           char subsidyEligibility[][25],
-          char subsidyDiscountRate[][5]);
+          char subsidyDiscountRate[][5],
+          char emergencyLevel[][10]);
 
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
@@ -87,7 +88,8 @@ void printBill(int patientID[],
                const float dailyBedRate[],
                unsigned long int checkInTime[],
                char subsidyEligibility[][25],
-               char subsidyDiscountRate[][5]);
+               char subsidyDiscountRate[][5],
+               char emergencyLevel[][10]);
 
 int surcharges(int triageLevel[],
                int i);
@@ -132,5 +134,8 @@ float finalPayment(unsigned short int age[],
                    char subsidyEligibility[][25],
                    char subsidyDiscountRate[][5]);
 
+void triageLevelDisplay(int triageLevel[],
+                        char emergencyLevel[][10],
+                        int i);
 
 #endif // PROJECT_H

@@ -20,7 +20,8 @@ void printBill(int patientID[],
                const float dailyBedRate[],
                unsigned long int checkInTime[],
                char subsidyEligibility[][25],
-               char subsidyDiscountRate[][5]){
+               char subsidyDiscountRate[][5],
+               char emergencyLevel[][10]){
 
     int selectedID;
     int i;
@@ -67,6 +68,7 @@ void printBill(int patientID[],
    float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
    float finalPayableAmount=finalPayment(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
 
+   triageLevelDisplay(triageLevel,emergencyLevel,i);
    surchargeRate=surcharges(triageLevel,i);
 
    if(surchargeRate!=-1){
@@ -80,7 +82,7 @@ void printBill(int patientID[],
     printf("Age                      : %hu Years (%s)\n",age[i],subsidyEligibility[i]);
     printf("Specialty                : %s\n",specialty[addSpecialtyID[i]-1]);
     printf("Assigned Ward            : %-s (Bed#%d)\n",wardName[addWardID[i]-1],addBedNumber[i]);
-    printf("Urgency Level            : Level %d()\n",triageLevel[i]);
+    printf("Urgency Level            : Level %d (%s)\n",triageLevel[i],emergencyLevel[i]);
 
     printf("---------------------------------------------------------\n");
 

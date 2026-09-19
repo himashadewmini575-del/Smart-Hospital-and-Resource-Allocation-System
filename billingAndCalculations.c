@@ -44,7 +44,7 @@ float grossTotalBillCalc(int daysAdmitted[],
         float emergencySurcharge=surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
         float totalWardCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
 
-    float grossTotal=baseConsultationFee[i]+emergencySurcharge+totalWardCost;
+    float grossTotal=baseConsultationFee[addSpecialtyID[i]-1]+emergencySurcharge+totalWardCost;
 
     return grossTotal;
 }
@@ -89,5 +89,22 @@ float finalPayment(unsigned short int age[],
     float grossTotal=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
     float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
 
-    return grossTotal-discount;
+    return grossTotal+discount;
+}
+
+void triageLevelDisplay(int triageLevel[],
+                        char emergencyLevel[][10],
+                        int i){
+
+    if(triageLevel[i]==1){
+        strcpy(emergencyLevel[i],"Normal");
+    }
+
+    else if(triageLevel[i]==2){
+        strcpy(emergencyLevel[i],"Urgent");
+    }
+
+    else if(triageLevel[i]==3){
+        strcpy(emergencyLevel[i],"Critical");
+    }
 }
