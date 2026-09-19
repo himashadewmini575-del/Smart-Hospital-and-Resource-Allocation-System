@@ -29,7 +29,8 @@ void menu(char name[][20],
           int patientID[],
           int surchargeRate,
           int addBedNumber[],
-          char subsidyEligibility[][25]){
+          char subsidyEligibility[][25],
+          char subsidyDiscountRate[][5]){
 
     int choice=0;
 
@@ -101,7 +102,8 @@ void menu(char name[][20],
                   addBedNumber,
                   dailyBedRate,
                   checkInTime,
-                  subsidyEligibility);
+                  subsidyEligibility,
+                  subsidyDiscountRate);
         continue;
     }
   }

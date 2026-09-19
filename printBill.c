@@ -19,7 +19,8 @@ void printBill(int patientID[],
                int addBedNumber[],
                const float dailyBedRate[],
                unsigned long int checkInTime[],
-               char subsidyEligibility[][25]){
+               char subsidyEligibility[][25],
+               char subsidyDiscountRate[][5]){
 
     int selectedID;
     int i;
@@ -63,13 +64,14 @@ void printBill(int patientID[],
    float surcharge= surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
    float wardStayCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
    float totalGrossCharge=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
-   float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility);
+   float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
+   float finalPayableAmount=finalPayment(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
 
    surchargeRate=surcharges(triageLevel,i);
 
    if(surchargeRate!=-1){
 
-    printf("=========================================================\n");
+    printf("\n=========================================================\n");
     printf("           SMART HOSPITAL ADMISSION & BILL               \n");
     printf("---------------------------------------------------------\n");
     printf("\n");
@@ -89,11 +91,11 @@ void printBill(int patientID[],
     printf("---------------------------------------------------------\n");
 
     printf("Gross Total Bill         : LKR %10.2f\n",totalGrossCharge);
-    printf("Age Subsidy Discount     : LKR %+10.2f\n",discount);
+    printf("Age Subsidy Discount     : LKR %+10.2f(%s)\n",discount,subsidyDiscountRate[i]);
 
     printf("---------------------------------------------------------\n");
 
-    printf("Final Payable Amount     : LKR  \n");
+    printf("Final Payable Amount     : LKR %10.2f\n",finalPayableAmount);
     printf("Estimated Waiting Time   : %.2f mins \n",waitTime[i]);
     printf("Check-in Time            : %02d:%02d\n",hours,mins);
     }

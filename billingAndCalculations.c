@@ -57,17 +57,37 @@ float subsidyDiscount(unsigned short int age[],
                       const float baseConsultationFee[],
                       int triageLevel[],
                       int addSpecialtyID[],
-                      char subsidyEligibility[][25]){
+                      char subsidyEligibility[][25],
+                      char subsidyDiscountRate[][5]){
 
     float grossTotal=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
 
 
     if(age[i]<5 || age[i]>65){
             strcpy(subsidyEligibility[i],"15% Subsidy Eligible");
+            strcpy(subsidyDiscountRate[i],"15%");
         return -grossTotal*0.15;
     }
     else{
             strcpy(subsidyEligibility[i],"Non-Subsidy Eligible");
+            strcpy(subsidyDiscountRate[i],"0%");
         return -0.0;
     }
+}
+
+float finalPayment(unsigned short int age[],
+                   int daysAdmitted[],
+                   const float dailyBedRate[],
+                   int i,
+                   int addWardID[],
+                   const float baseConsultationFee[],
+                   int triageLevel[],
+                   int addSpecialtyID[],
+                   char subsidyEligibility[][25],
+                   char subsidyDiscountRate[][5]){
+
+    float grossTotal=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
+    float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
+
+    return grossTotal-discount;
 }
