@@ -146,4 +146,8 @@ void primaryPriority(int triageLevel[],
                      int patientID[],
                      char name[][20],
                      unsigned int patientCount);
+
+void secondaryPriority(int patientID[],
+                       char name[][20],
+                       unsigned int patientCount);
 #endif // PROJECT_H

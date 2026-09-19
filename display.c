@@ -43,7 +43,9 @@ void menu(char name[][20],
     printf("3.Bed Status\n");
     printf("4.New Patient Registration\n");
     printf("5.Print Bill\n");
-    printf("6.Primary Priority Report\n");
+    printf("6.Primary Priority Report\n\t(Sorted by Urgency Level)\n");
+    printf("7.Secondary Priority Report\n\t(Sorted by Registration Order)\n");
+    printf("8.Exit\n");
 
     printf("\n");
 
@@ -114,6 +116,21 @@ void menu(char name[][20],
                         patientID,
                         name,
                         *patientCount);
+        continue;
+
+    case 7:
+        secondaryPriority(patientID,
+                          name,
+                          *patientCount);
+        continue;
+
+    case 8:
+        printf("\n###Exiting the System ###\n");
+        return;
+
+    default:
+        printf("***INVALID INPUT***");
+        continue;
     }
   }
 }
