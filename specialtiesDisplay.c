@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "project.h"
 
-#define MAX_SPECIALTY 4
-
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
                          const float baseConsultationFee[],

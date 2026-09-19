@@ -27,11 +27,11 @@ void menu(char name[][20],
           int currentQueueCount[],
           float waitTime[],
           int patientID[],
-          int surchargeRate,
           int addBedNumber[],
           char subsidyEligibility[][25],
           char subsidyDiscountRate[][5],
-          char emergencyLevel[][10]){
+          char emergencyLevel[][10],
+          int admissionStatus[]){
 
     int choice=0;
 
@@ -82,7 +82,8 @@ void menu(char name[][20],
                       consultationTimeInMinutes,
                       patientID,
                       addBedNumber,
-                      bedOccupancy);
+                      bedOccupancy,
+                      admissionStatus);
         continue;
 
     case 5:
@@ -95,8 +96,6 @@ void menu(char name[][20],
                   triageLevel,
                   daysAdmitted,
                   waitTime,
-                  bedOccupancy,
-                  surchargeRate,
                   addSpecialtyID,
                   addWardID,
                   baseConsultationFee,
@@ -105,7 +104,8 @@ void menu(char name[][20],
                   checkInTime,
                   subsidyEligibility,
                   subsidyDiscountRate,
-                  emergencyLevel);
+                  emergencyLevel,
+                  admissionStatus);
         continue;
     }
   }

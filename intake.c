@@ -3,8 +3,6 @@
 #include "project.h"
 #include <ctype.h>
 
-#define MAXPATIENTS 1000
-
 void patientIntake(char name[][20],
                    unsigned short int age[],
                    unsigned long int checkInTime[],
@@ -22,16 +20,15 @@ void patientIntake(char name[][20],
                    const int consultationTimeInMinutes[],
                    int patientID[],
                    int addBedNumber[],
-                   int bedOccupancy[][20]){
+                   int bedOccupancy[][20],
+                   int admissionStatus[]){
 
     int hours=0;   //since 00:00
     int minutes=0;
 
-    int admissionStatus=0;
-
     printf("\n");
 
-    for(int i=*patientCount;i<MAXPATIENTS;i++){
+    for(int i=*patientCount;i<MAX_PATIENTS;i++){
 
     printf("--PATIENT'S PERSONAL INFORMATION--\n\n");
 
@@ -149,7 +146,7 @@ void patientIntake(char name[][20],
 
          printf("Is Patient getting Admitted (1=Yes, 0=No) :\n");
 
-         while(scanf("%d",&admissionStatus) !=1 ||(admissionStatus !=0 && admissionStatus !=1)){
+         while(scanf("%d",&admissionStatus[i]) !=1 ||(admissionStatus[i] !=0 && admissionStatus[i] !=1)){
          printf("\n**INVALID INPUT**\n\n");
 
          while(getchar()!='\n');
@@ -157,12 +154,16 @@ void patientIntake(char name[][20],
          printf("\nIs Patient already admitted to a ward? (1=Yes,0=No) :\n");
          }
 
-        if(admissionStatus==1){
+        if(admissionStatus[i]==1){
                 admitToAWard(bedOccupancy,addBedNumber,addWardID,i);
         }
 
-        if(admissionStatus==0){
-           printf("Outpatient\n");
+        if(admissionStatus[i]==0){
+           addWardID[i]=0;
+           addBedNumber[i]=0;
+           daysAdmitted[i]=0;
+
+           printf("\n^^OUT PATIENT^^\n\n");
         }
 
     //printf("%d",waitTime[i]);

@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "project.h"
 
-#define MAX_WARDS 4
-
 void bedArray(int bedOccupancy[][20],const int wardID[]){
 
     printf("**BED MAP**\n\n");

@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include "project.h"
 
-#define MAX_PATIENTS 1000
-#define MAX_WARDS 4
-#define MAX_SPECIALTY 4
-
 int main()
 {
     printf("+++++ Smart Hospital\n");
@@ -43,12 +39,12 @@ int main()
     float waitTime[MAX_PATIENTS]={0};
     int patientID[MAX_PATIENTS];
 
-    int surchargeRate=0;
     float surcharge=0;
     int addBedNumber[20];
     char subsidyEligibility[MAX_PATIENTS][25];
     char subsidyDiscountRate[MAX_PATIENTS][5];
     char emergencyLevel[MAX_PATIENTS][10];
+    int admissionStatus[MAX_PATIENTS];
 
     menu(name,
          age,
@@ -75,11 +71,11 @@ int main()
          currentQueueCount,
          waitTime,
          patientID,
-         surchargeRate,
          addBedNumber,
          subsidyEligibility,
          subsidyDiscountRate,
-         emergencyLevel);
+         emergencyLevel,
+         admissionStatus);
 
     return 0;
 }

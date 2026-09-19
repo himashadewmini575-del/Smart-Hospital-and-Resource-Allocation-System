@@ -11,8 +11,6 @@ void printBill(int patientID[],
                int triageLevel[],
                int daysAdmitted[],
                float waitTime[],
-               int bedOccupancy[][20],
-               int surchargeRate,
                int addSpecialtyID[],
                int addWardID[],
                const float baseConsultationFee[],
@@ -21,7 +19,8 @@ void printBill(int patientID[],
                unsigned long int checkInTime[],
                char subsidyEligibility[][25],
                char subsidyDiscountRate[][5],
-               char emergencyLevel[][10]){
+               char emergencyLevel[][10],
+               int admissionStatus[]){
 
     int selectedID;
     int i;
@@ -32,19 +31,7 @@ void printBill(int patientID[],
     for(i=0;i<patientCount;i++){
             if(patientID[i]==selectedID){
 
-    int admissionStatus=0;
-
-                    printf("Is Patient already admitted to a ward? (1=Yes,0=No) :");
-
-                    while(scanf("%d",&admissionStatus)!=1 || (admissionStatus !=0 && admissionStatus !=1)){
-                            printf("\n**INVALID INPUT**\n\n");
-
-                            while(getchar()!='\n');
-
-        printf("Is Patient already admitted to a ward? (1=Yes,0=No) :");
-    }
-
-    if(admissionStatus==1){
+    if(admissionStatus[i]==1){
 
         printf("Enter number of days admitted :");
 
@@ -55,7 +42,7 @@ void printBill(int patientID[],
         }
     }
 
-    else if(admissionStatus==0){
+    else if(admissionStatus[i]==0){
         daysAdmitted[i]=0;
     }
 
@@ -69,7 +56,7 @@ void printBill(int patientID[],
    float finalPayableAmount=finalPayment(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility,subsidyDiscountRate);
 
    triageLevelDisplay(triageLevel,emergencyLevel,i);
-   surchargeRate=surcharges(triageLevel,i);
+   int surchargeRate=surcharges(triageLevel,i);
 
    if(surchargeRate!=-1){
 
@@ -81,7 +68,14 @@ void printBill(int patientID[],
     printf("Patient Name             : %-s\n",name[i]);
     printf("Age                      : %hu Years (%s)\n",age[i],subsidyEligibility[i]);
     printf("Specialty                : %s\n",specialty[addSpecialtyID[i]-1]);
+
+    if(addWardID[i]==0){
+    printf("Assigned Ward            : OPD (No Ward)\n");
+    }
+    else{
     printf("Assigned Ward            : %-s (Bed#%d)\n",wardName[addWardID[i]-1],addBedNumber[i]);
+    }
+
     printf("Urgency Level            : Level %d (%s)\n",triageLevel[i],emergencyLevel[i]);
 
     printf("---------------------------------------------------------\n");

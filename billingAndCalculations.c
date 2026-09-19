@@ -3,9 +3,14 @@
 #include "project.h"
 #include <string.h>
 
-#define MAX_SPECIALTY 4
+float wardStayBill(int daysAdmitted[],
+                   const float dailyBedRate[],
+                   int i,
+                   int addWardID[]){
 
-float wardStayBill(int daysAdmitted[],const float dailyBedRate[],int i,int addWardID[]){
+    if(daysAdmitted[i]==0){
+        return 0.0;
+    }
 
      float totalWardCost;
 

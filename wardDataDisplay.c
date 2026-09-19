@@ -19,7 +19,7 @@ void hospitalWardData(const int wardID[],
 
    printf("===============================================================================================\n");
 
-   for(int i=0;i<4;i++){
+   for(int i=0;i<MAX_WARDS;i++){
 
     printf("%10d |",wardID[i]);
     printf("%-30s Ward |",wardName[i]);

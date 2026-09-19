@@ -1,6 +1,10 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
+#define MAX_PATIENTS 1000
+#define MAX_WARDS 4
+#define MAX_SPECIALTY 4
+
 void patientIntake(char name[][20],
                   unsigned short int age[],
                   unsigned long int checkInTime[],
@@ -18,7 +22,8 @@ void patientIntake(char name[][20],
                   const int consultationTimeInMinutes[],
                   int patientID[],
                   int addBedNumber[],
-                  int bedOccupancy[][20]);
+                  int bedOccupancy[][20],
+                  int admissionStatus[]);
 
 void menu(char name[][20],
           unsigned short int age[],
@@ -45,11 +50,11 @@ void menu(char name[][20],
           int currentQueueCount[],
           float waitTime[],
           int patientID[],
-          int surchargeRate,
           int addBedNumber[],
           char subsidyEligibility[][25],
           char subsidyDiscountRate[][5],
-          char emergencyLevel[][10]);
+          char emergencyLevel[][10],
+          int admissionStatus[]);
 
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
@@ -79,8 +84,6 @@ void printBill(int patientID[],
                int triageLevel[],
                int daysAdmitted[],
                float waitTime[],
-               int bedOccupancy[][20],
-               int surchargeRate,
                int addSpecialtyID[],
                int addWardID[],
                const float baseConsultationFee[],
@@ -89,7 +92,8 @@ void printBill(int patientID[],
                unsigned long int checkInTime[],
                char subsidyEligibility[][25],
                char subsidyDiscountRate[][5],
-               char emergencyLevel[][10]);
+               char emergencyLevel[][10],
+               int admissionStatus[]);
 
 int surcharges(int triageLevel[],
                int i);
