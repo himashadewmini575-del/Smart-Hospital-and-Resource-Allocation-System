@@ -98,4 +98,12 @@ float wardStayBill(int daysAdmitted[],
                    int i,
                    int addWardID[]);
 
+float grossTotalBillCalc(int daysAdmitted[],
+                         const float dailyBedRate[],
+                         int i,
+                         int addWardID[],
+                         const float baseConsultationFee[],
+                         int triageLevel[],
+                         int addSpecialtyID[]);
+
 #endif // PROJECT_H

@@ -31,3 +31,19 @@ float surchargeCalc(const float baseConsultationFee[],
 
     return surcharge;
 }
+
+float grossTotalBillCalc(int daysAdmitted[],
+                         const float dailyBedRate[],
+                         int i,
+                         int addWardID[],
+                         const float baseConsultationFee[],
+                         int triageLevel[],
+                         int addSpecialtyID[]){
+
+        float emergencySurcharge=surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
+        float totalWardCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
+
+    float grossTotal=baseConsultationFee[i]+emergencySurcharge+totalWardCost;
+
+    return grossTotal;
+}

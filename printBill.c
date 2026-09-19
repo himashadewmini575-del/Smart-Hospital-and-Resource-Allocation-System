@@ -61,6 +61,7 @@ void printBill(int patientID[],
 
    float surcharge= surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
    float wardStayCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
+   float totalGrossCharge=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
 
    surchargeRate=surcharges(triageLevel,i);
 
@@ -79,14 +80,14 @@ void printBill(int patientID[],
 
     printf("---------------------------------------------------------\n");
 
-    printf("Base Consultation Fee   : LKR \n");
-    printf("Emergency Surcharges    : LKR %.2f (%d%%)\n",surcharge,surchargeRate);
-    printf("Ward Stay Cost(%d Days) : LKR %.2f\n",daysAdmitted[i],wardStayCost);
+    printf("Base Consultation Fee   : LKR %10.2f\n",baseConsultationFee[addSpecialtyID[i]-1]);
+    printf("Emergency Surcharges    : LKR %10.2f (%d%%)\n",surcharge,surchargeRate);
+    printf("Ward Stay Cost(%d Days) : LKR %10.2f\n",daysAdmitted[i],wardStayCost);
 
     printf("---------------------------------------------------------\n");
 
-    printf("Gross Total Bill        : LKR \n");
-    printf("Age Subsidy Discount    : LKR \n");
+    printf("Gross Total Bill        : LKR %10.2f\n",totalGrossCharge);
+    printf("Age Subsidy Discount    : LKR -\n");
 
     printf("---------------------------------------------------------\n");
 
