@@ -142,4 +142,8 @@ void triageLevelDisplay(int triageLevel[],
                         char emergencyLevel[][10],
                         int i);
 
+void primaryPriority(int triageLevel[],
+                     int patientID[],
+                     char name[][20],
+                     unsigned int patientCount);
 #endif // PROJECT_H

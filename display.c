@@ -43,6 +43,7 @@ void menu(char name[][20],
     printf("3.Bed Status\n");
     printf("4.New Patient Registration\n");
     printf("5.Print Bill\n");
+    printf("6.Primary Priority Report\n");
 
     printf("\n");
 
@@ -107,6 +108,12 @@ void menu(char name[][20],
                   emergencyLevel,
                   admissionStatus);
         continue;
+
+    case 6:
+        primaryPriority(triageLevel,
+                        patientID,
+                        name,
+                        *patientCount);
     }
   }
 }

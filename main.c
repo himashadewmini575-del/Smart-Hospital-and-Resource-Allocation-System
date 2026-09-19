@@ -20,6 +20,8 @@ int main()
     int triageLevel[MAX_PATIENTS];
     int addSpecialtyID[MAX_PATIENTS];
     int addWardID[MAX_PATIENTS];
+    int admissionStatus[MAX_PATIENTS];
+    int addBedNumber[20];
 
     const int specialtyID[]={1,2,3,4};
     const char specialty[][25]={"General Practice(OPD)","Paediatrics","Cardiology","Neurology"};
@@ -40,11 +42,9 @@ int main()
     int patientID[MAX_PATIENTS];
 
     float surcharge=0;
-    int addBedNumber[20];
     char subsidyEligibility[MAX_PATIENTS][25];
     char subsidyDiscountRate[MAX_PATIENTS][5];
     char emergencyLevel[MAX_PATIENTS][10];
-    int admissionStatus[MAX_PATIENTS];
 
     menu(name,
          age,
