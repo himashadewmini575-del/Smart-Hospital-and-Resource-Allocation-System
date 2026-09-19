@@ -18,7 +18,8 @@ void printBill(int patientID[],
                const float baseConsultationFee[],
                int addBedNumber[],
                const float dailyBedRate[],
-               unsigned long int checkInTime[]){
+               unsigned long int checkInTime[],
+               char subsidyEligibility[][25]){
 
     int selectedID;
     int i;
@@ -62,6 +63,7 @@ void printBill(int patientID[],
    float surcharge= surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
    float wardStayCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
    float totalGrossCharge=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
+   float discount=subsidyDiscount(age,daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID,subsidyEligibility);
 
    surchargeRate=surcharges(triageLevel,i);
 
@@ -71,29 +73,29 @@ void printBill(int patientID[],
     printf("           SMART HOSPITAL ADMISSION & BILL               \n");
     printf("---------------------------------------------------------\n");
     printf("\n");
-    printf("Patient ID              : PAT-%04d\n",patientID[i]);
-    printf("Patient Name            : %-s\n",name[i]);
-    printf("Age                     : %hu Years\n",age[i]);
-    printf("Specialty               : %s\n",specialty[addSpecialtyID[i]-1]);
-    printf("Assigned Ward           : %-s (Bed#%d)\n",wardName[addWardID[i]-1],addBedNumber[i]);
-    printf("Urgency Level           : Level %d\n",triageLevel[i]);
+    printf("Patient ID               : PAT-%04d\n",patientID[i]);
+    printf("Patient Name             : %-s\n",name[i]);
+    printf("Age                      : %hu Years (%s)\n",age[i],subsidyEligibility[i]);
+    printf("Specialty                : %s\n",specialty[addSpecialtyID[i]-1]);
+    printf("Assigned Ward            : %-s (Bed#%d)\n",wardName[addWardID[i]-1],addBedNumber[i]);
+    printf("Urgency Level            : Level %d()\n",triageLevel[i]);
 
     printf("---------------------------------------------------------\n");
 
-    printf("Base Consultation Fee   : LKR %10.2f\n",baseConsultationFee[addSpecialtyID[i]-1]);
-    printf("Emergency Surcharges    : LKR %10.2f (%d%%)\n",surcharge,surchargeRate);
-    printf("Ward Stay Cost(%d Days) : LKR %10.2f\n",daysAdmitted[i],wardStayCost);
+    printf("Base Consultation Fee    : LKR %10.2f\n",baseConsultationFee[addSpecialtyID[i]-1]);
+    printf("Emergency Surcharges     : LKR %10.2f (%d%%)\n",surcharge,surchargeRate);
+    printf("Ward Stay Cost(%3d Days) : LKR %10.2f\n",daysAdmitted[i],wardStayCost);
 
     printf("---------------------------------------------------------\n");
 
-    printf("Gross Total Bill        : LKR %10.2f\n",totalGrossCharge);
-    printf("Age Subsidy Discount    : LKR -\n");
+    printf("Gross Total Bill         : LKR %10.2f\n",totalGrossCharge);
+    printf("Age Subsidy Discount     : LKR %+10.2f\n",discount);
 
     printf("---------------------------------------------------------\n");
 
-    printf("Final Payable Amount    : LKR  \n");
-    printf("Estimated Waiting Time  : %.2f mins \n",waitTime[i]);
-    printf("Check-in Time           : %02d:%02d",hours,mins);
+    printf("Final Payable Amount     : LKR  \n");
+    printf("Estimated Waiting Time   : %.2f mins \n",waitTime[i]);
+    printf("Check-in Time            : %02d:%02d\n",hours,mins);
     }
    }
  }

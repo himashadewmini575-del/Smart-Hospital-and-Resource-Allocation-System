@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "project.h"
+#include <string.h>
 
 #define MAX_SPECIALTY 4
 
@@ -46,4 +47,27 @@ float grossTotalBillCalc(int daysAdmitted[],
     float grossTotal=baseConsultationFee[i]+emergencySurcharge+totalWardCost;
 
     return grossTotal;
+}
+
+float subsidyDiscount(unsigned short int age[],
+                      int daysAdmitted[],
+                      const float dailyBedRate[],
+                      int i,
+                      int addWardID[],
+                      const float baseConsultationFee[],
+                      int triageLevel[],
+                      int addSpecialtyID[],
+                      char subsidyEligibility[][25]){
+
+    float grossTotal=grossTotalBillCalc(daysAdmitted,dailyBedRate,i,addWardID,baseConsultationFee,triageLevel,addSpecialtyID);
+
+
+    if(age[i]<5 || age[i]>65){
+            strcpy(subsidyEligibility[i],"15% Subsidy Eligible");
+        return -grossTotal*0.15;
+    }
+    else{
+            strcpy(subsidyEligibility[i],"Non-Subsidy Eligible");
+        return -0.0;
+    }
 }

@@ -46,6 +46,7 @@ int main()
     int surchargeRate=0;
     float surcharge=0;
     int addBedNumber[20];
+    char subsidyEligibility[MAX_PATIENTS][25];
 
     menu(name,
          age,
@@ -73,6 +74,7 @@ int main()
          waitTime,
          patientID,
          surchargeRate,
-         addBedNumber);
+         addBedNumber,
+         subsidyEligibility);
     return 0;
 }
