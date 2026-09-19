@@ -4,8 +4,13 @@
 
 #define MAX_SPECIALTY 4
 
-void wardStayBill(const float baseConsultationFee[],int daysAdmitted[],const float dailyBedRate[],int patientID[]){
+float wardStayBill(int daysAdmitted[],const float dailyBedRate[],int i,int addWardID[]){
 
+     float totalWardCost;
+
+     totalWardCost=daysAdmitted[i]*dailyBedRate[addWardID[i]-1];
+
+        return totalWardCost;
 }
 
 float surchargeCalc(const float baseConsultationFee[],

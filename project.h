@@ -81,7 +81,9 @@ void printBill(int patientID[],
                int addSpecialtyID[],
                int addWardID[],
                const float baseConsultationFee[],
-               int addBedNumber[]);
+               int addBedNumber[],
+               const float dailyBedRate[],
+               unsigned long int checkInTime[]);
 
 int surcharges(int triageLevel[],
                int i);
@@ -90,5 +92,10 @@ float surchargeCalc(const float baseConsultationFee[],
                     int i,
                     int triageLevel[],
                     int addSpecialtyID[]);
+
+float wardStayBill(int daysAdmitted[],
+                   const float dailyBedRate[],
+                   int i,
+                   int addWardID[]);
 
 #endif // PROJECT_H

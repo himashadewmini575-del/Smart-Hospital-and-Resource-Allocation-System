@@ -97,7 +97,9 @@ void menu(char name[][20],
                   addSpecialtyID,
                   addWardID,
                   baseConsultationFee,
-                  addBedNumber);
+                  addBedNumber,
+                  dailyBedRate,
+                  checkInTime);
         continue;
     }
   }

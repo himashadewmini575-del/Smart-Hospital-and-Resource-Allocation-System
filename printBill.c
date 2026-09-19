@@ -16,7 +16,9 @@ void printBill(int patientID[],
                int addSpecialtyID[],
                int addWardID[],
                const float baseConsultationFee[],
-               int addBedNumber[]){
+               int addBedNumber[],
+               const float dailyBedRate[],
+               unsigned long int checkInTime[]){
 
     int selectedID;
     int i;
@@ -54,7 +56,11 @@ void printBill(int patientID[],
         daysAdmitted[i]=0;
     }
 
+    int hours=checkInTime[i]/60;
+    int mins=checkInTime[i]%60;
+
    float surcharge= surchargeCalc(baseConsultationFee,i,triageLevel,addSpecialtyID);
+   float wardStayCost=wardStayBill(daysAdmitted,dailyBedRate,i,addWardID);
 
    surchargeRate=surcharges(triageLevel,i);
 
@@ -75,7 +81,7 @@ void printBill(int patientID[],
 
     printf("Base Consultation Fee   : LKR \n");
     printf("Emergency Surcharges    : LKR %.2f (%d%%)\n",surcharge,surchargeRate);
-    printf("Ward Stay Cost(%d Days) : LKR \n",daysAdmitted[i]);
+    printf("Ward Stay Cost(%d Days) : LKR %.2f\n",daysAdmitted[i],wardStayCost);
 
     printf("---------------------------------------------------------\n");
 
@@ -86,6 +92,7 @@ void printBill(int patientID[],
 
     printf("Final Payable Amount    : LKR  \n");
     printf("Estimated Waiting Time  : %.2f mins \n",waitTime[i]);
+    printf("Check-in Time           : %02d:%02d",hours,mins);
     }
    }
  }
