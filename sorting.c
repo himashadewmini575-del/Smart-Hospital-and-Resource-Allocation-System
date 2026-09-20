@@ -4,7 +4,7 @@
 
 void primaryPriority(int triageLevel[],
                      int patientID[],
-                     char name[][20],
+                     char name[][50],
                      unsigned int patientCount,
                      char emergencyLevel[][10]){
 
@@ -16,7 +16,7 @@ void primaryPriority(int triageLevel[],
 
    if(patientCount!=0){
 
-     printf("    |%10s |%-20s |%15s\n","Patient ID","Name","Urgency Level");
+     printf("    |%10s |%-50s |%-15s\n","Patient ID","Name","Urgency Level");
 
     while(remainingPatients !=0){
     int maxPriorityPatient=-1;
@@ -28,7 +28,7 @@ void primaryPriority(int triageLevel[],
           }
     }
 
-    printf("%3d |   %04d \t|%-20s |%10s\n", i,patientID[maxPriorityPatient],name[maxPriorityPatient],emergencyLevel[maxPriorityPatient]);
+    printf("%3d |   %04d \t|%-50s |%-10s\n", i,patientID[maxPriorityPatient],name[maxPriorityPatient],emergencyLevel[maxPriorityPatient]);
 
     selected[maxPriorityPatient]=1;
     remainingPatients--;
@@ -43,7 +43,7 @@ void primaryPriority(int triageLevel[],
 }
 
 void secondaryPriority(int patientID[],
-                       char name[][20],
+                       char name[][50],
                        unsigned int patientCount){
 
     printf("\nTotal patients Registered :%u\n\n",patientCount);

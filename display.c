@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "project.h"
 
-void menu(char name[][20],
+void menu(char name[][50],
           unsigned short int age[],
           unsigned long int checkInTime[],
           unsigned int* patientCount,

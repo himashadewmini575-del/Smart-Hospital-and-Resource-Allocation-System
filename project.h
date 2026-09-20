@@ -5,7 +5,7 @@
 #define MAX_WARDS 4
 #define MAX_SPECIALTY 4
 
-void patientIntake(char name[][20],
+void patientIntake(char name[][50],
                   unsigned short int age[],
                   unsigned long int checkInTime[],
                   unsigned int* patientCount,
@@ -26,7 +26,7 @@ void patientIntake(char name[][20],
                   int admissionStatus[],
                   char emergencyLevel[][10]);
 
-void menu(char name[][20],
+void menu(char name[][50],
           unsigned short int age[],
           unsigned long int checkInTime[],
           unsigned int* patientCount,
@@ -80,7 +80,7 @@ void admitToAWard(int bedOccupancy[][20],
                   int i);
 
 void printBill(int patientID[],
-               char name[][20],
+               char name[][50],
                const char specialty[][25],
                int patientCount,
                unsigned short int age[],
@@ -150,12 +150,12 @@ void triageLevelDisplay(int triageLevel[],
 
 void primaryPriority(int triageLevel[],
                      int patientID[],
-                     char name[][20],
+                     char name[][50],
                      unsigned int patientCount,
                      char emergencyLevel[][10]);
 
 void secondaryPriority(int patientID[],
-                       char name[][20],
+                       char name[][50],
                        unsigned int patientCount);
 
 float revenueCalc(float finalPayableAmount[],
@@ -176,6 +176,6 @@ void summaryReport(unsigned int patientCount,
                    float discount[],
                    float finalPayableAmount[],
                    float bedPercentage[],
-                   char name[][20]);
+                   char name[][50]);
 
 #endif // PROJECT_H

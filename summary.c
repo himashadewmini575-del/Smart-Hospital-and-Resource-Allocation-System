@@ -60,7 +60,7 @@ void summaryReport(unsigned int patientCount,
                    float discount[],
                    float finalPayableAmount[],
                    float bedPercentage[],
-                   char name[][20]){
+                   char name[][50]){
 
     if(patientCount!=0){
 

@@ -3,7 +3,7 @@
 #include "project.h"
 #include <ctype.h>
 
-void patientIntake(char name[][20],
+void patientIntake(char name[][50],
                    unsigned short int age[],
                    unsigned long int checkInTime[],
                    unsigned int* patientCount,

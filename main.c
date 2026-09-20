@@ -9,7 +9,7 @@ int main()
     printf("          Resource Allocation System +++++\n");
     printf("\n");
 
-    char name[MAX_PATIENTS][20];
+    char name[MAX_PATIENTS][50];
     unsigned short int age[MAX_PATIENTS];
     unsigned long int checkInTime[MAX_PATIENTS]; //in minutes
     unsigned int patientCount=0;

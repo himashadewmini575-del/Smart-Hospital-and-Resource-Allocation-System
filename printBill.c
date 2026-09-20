@@ -3,7 +3,7 @@
 #include "project.h"
 
 void printBill(int patientID[],
-               char name[][20],
+               char name[][50],
                const char specialty[][25],
                int patientCount,
                unsigned short int age[],
