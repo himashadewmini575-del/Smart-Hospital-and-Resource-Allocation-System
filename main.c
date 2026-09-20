@@ -50,6 +50,30 @@ int main()
     float discount[MAX_PATIENTS]={0};
     float bedPercentage[MAX_WARDS];
 
+    loadData(&patientCount,
+             name,
+             age,
+             checkInTime,
+             contactNumber,
+             address,
+             IDNumber,
+             emergencyContactNumber,
+             triageLevel,
+             addSpecialtyID,
+             addWardID,
+             daysAdmitted,
+             currentQueueCount,
+             waitTime,
+             patientID,
+             addBedNumber,
+             bedOccupancy,
+             admissionStatus,
+             subsidyEligibility,
+             subsidyDiscountRate,
+             emergencyLevel,
+             finalPayableAmount,
+             discount);
+
     menu(name,
          age,
          checkInTime,

@@ -92,6 +92,30 @@ void menu(char name[][50],
                       bedOccupancy,
                       admissionStatus,
                       emergencyLevel);
+
+        saveData(*patientCount,
+                 name,
+                 age,
+                 checkInTime,
+                 contactNumber,
+                 address,
+                 IDNumber,
+                 emergencyContactNumber,
+                 triageLevel,
+                 addSpecialtyID,
+                 addWardID,
+                 daysAdmitted,
+                 currentQueueCount,
+                 waitTime,
+                 patientID,
+                 addBedNumber,
+                 bedOccupancy,
+                 admissionStatus,
+                 subsidyEligibility,
+                 subsidyDiscountRate,
+                 emergencyLevel,
+                 finalPayableAmount,
+                 discount);
         continue;
 
     case 5:
