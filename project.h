@@ -23,7 +23,8 @@ void patientIntake(char name[][20],
                   int patientID[],
                   int addBedNumber[],
                   int bedOccupancy[][20],
-                  int admissionStatus[]);
+                  int admissionStatus[],
+                  char emergencyLevel[][10]);
 
 void menu(char name[][20],
           unsigned short int age[],
@@ -54,7 +55,10 @@ void menu(char name[][20],
           char subsidyEligibility[][25],
           char subsidyDiscountRate[][5],
           char emergencyLevel[][10],
-          int admissionStatus[]);
+          int admissionStatus[],
+          float finalPayableAmount[],
+          float discount[],
+          float bedPercentage[]);
 
 void doctorSpecialtyData(const int specialtyID[],
                          const char specialty[][25],
@@ -93,7 +97,9 @@ void printBill(int patientID[],
                char subsidyEligibility[][25],
                char subsidyDiscountRate[][5],
                char emergencyLevel[][10],
-               int admissionStatus[]);
+               int admissionStatus[],
+               float discount[],
+               float finalPayableAmount[]);
 
 int surcharges(int triageLevel[],
                int i);
@@ -145,9 +151,31 @@ void triageLevelDisplay(int triageLevel[],
 void primaryPriority(int triageLevel[],
                      int patientID[],
                      char name[][20],
-                     unsigned int patientCount);
+                     unsigned int patientCount,
+                     char emergencyLevel[][10]);
 
 void secondaryPriority(int patientID[],
                        char name[][20],
                        unsigned int patientCount);
+
+float revenueCalc(float finalPayableAmount[],
+                  unsigned int patientCount);
+
+float discountCalc(float discount[],
+                   unsigned int patientCount);
+
+void bedOccupancyPercentage(int addWardID[],
+                            unsigned int patientCount,
+                            float bedPercentage[],
+                            int admissionStatus[]);
+
+int sortHighestPaying(float finalPayableAmount[],
+                      unsigned int patientCount);
+
+void summaryReport(unsigned int patientCount,
+                   float discount[],
+                   float finalPayableAmount[],
+                   float bedPercentage[],
+                   char name[][20]);
+
 #endif // PROJECT_H

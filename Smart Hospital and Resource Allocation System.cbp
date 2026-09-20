@@ -56,6 +56,9 @@
 		<Unit filename="specialtiesDisplay.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="summary.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="surcharges.c">
 			<Option compilerVar="CC" />
 		</Unit>

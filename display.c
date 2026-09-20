@@ -31,7 +31,10 @@ void menu(char name[][20],
           char subsidyEligibility[][25],
           char subsidyDiscountRate[][5],
           char emergencyLevel[][10],
-          int admissionStatus[]){
+          int admissionStatus[],
+          float finalPayableAmount[],
+          float discount[],
+          float bedPercentage[]){
 
     int choice=0;
 
@@ -45,7 +48,8 @@ void menu(char name[][20],
     printf("5.Print Bill\n");
     printf("6.Primary Priority Report\n\t(Sorted by Urgency Level)\n");
     printf("7.Secondary Priority Report\n\t(Sorted by Registration Order)\n");
-    printf("8.Exit\n");
+    printf("8.Summary Report\n");
+    printf("9.Exit\n");
 
     printf("\n");
 
@@ -86,7 +90,8 @@ void menu(char name[][20],
                       patientID,
                       addBedNumber,
                       bedOccupancy,
-                      admissionStatus);
+                      admissionStatus,
+                      emergencyLevel);
         continue;
 
     case 5:
@@ -108,14 +113,17 @@ void menu(char name[][20],
                   subsidyEligibility,
                   subsidyDiscountRate,
                   emergencyLevel,
-                  admissionStatus);
+                  admissionStatus,
+                  discount,
+                  finalPayableAmount);
         continue;
 
     case 6:
         primaryPriority(triageLevel,
                         patientID,
                         name,
-                        *patientCount);
+                        *patientCount,
+                        emergencyLevel);
         continue;
 
     case 7:
@@ -125,6 +133,19 @@ void menu(char name[][20],
         continue;
 
     case 8:
+        bedOccupancyPercentage(addWardID,
+                               *patientCount,
+                               bedPercentage,
+                               admissionStatus);
+
+        summaryReport(*patientCount,
+                      discount,
+                      finalPayableAmount,
+                      bedPercentage,
+                      name);
+        continue;
+
+    case 9:
         printf("\n###Exiting the System ###\n");
         return;
 

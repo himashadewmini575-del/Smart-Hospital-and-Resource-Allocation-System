@@ -1,18 +1,18 @@
 # depslib dependency file v1.0
-1789826966 source:c:\users\asus\desktop\smart hospital and resource allocation system\intake.c
+1789839823 source:c:\users\asus\desktop\smart hospital and resource allocation system\intake.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
 	<ctype.h>
 
-1789836944 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
+1789868806 c:\users\asus\desktop\smart hospital and resource allocation system\project.h
 
-1789829656 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
+1789868806 source:c:\users\asus\desktop\smart hospital and resource allocation system\main.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
 
-1789837793 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
+1789847353 source:c:\users\asus\desktop\smart hospital and resource allocation system\display.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
@@ -38,7 +38,7 @@
 	"project.h"
 	<string.h>
 
-1789826028 source:c:\users\asus\desktop\smart hospital and resource allocation system\printbill.c
+1789847353 source:c:\users\asus\desktop\smart hospital and resource allocation system\printbill.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"
@@ -48,7 +48,12 @@
 	<stdlib.h>
 	"project.h"
 
-1789837893 source:c:\users\asus\desktop\smart hospital and resource allocation system\sorting.c
+1789840031 source:c:\users\asus\desktop\smart hospital and resource allocation system\sorting.c
+	<stdio.h>
+	<stdlib.h>
+	"project.h"
+
+1789868806 source:c:\users\asus\desktop\smart hospital and resource allocation system\summary.c
 	<stdio.h>
 	<stdlib.h>
 	"project.h"

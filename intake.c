@@ -21,7 +21,8 @@ void patientIntake(char name[][20],
                    int patientID[],
                    int addBedNumber[],
                    int bedOccupancy[][20],
-                   int admissionStatus[]){
+                   int admissionStatus[],
+                   char emergencyLevel[][10]){
 
     int hours=0;   //since 00:00
     int minutes=0;
@@ -113,6 +114,8 @@ void patientIntake(char name[][20],
 
          printf("Enter Emergency/Triage Level \n\t 1=Normal\n\t 2=Urgent\n\t 3=Critical :");
     }
+
+    triageLevelDisplay(triageLevel,emergencyLevel,i);
 
     printf("Enter Specialty ID you want to select :");
 
